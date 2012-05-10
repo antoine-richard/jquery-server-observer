@@ -21,7 +21,7 @@
 		 * 
 		 * The 'options' parameter is a set of key/value pairs:
 		 * - 'url' - [Optional] A "ping" URL on which a HEAD HTTP request will be sent to check the server availability.
-		 *    If no URL is provided, the Server Observer will only notify availability changes on user-sent Ajax requests.
+		 *    If no URL is provided, only user-sent Ajax requests will be observed.
 		 * - 'frequency' - [Optional, default: 3000] Time between each "ping".
 		 * - 'onServerOnline' - A function called when the server becomes available.
 		 * - 'onServerOffline' - A function called when the server becomes unavailable.

@@ -23,10 +23,10 @@ The plugin provides two operations:
 
 	`options` is a set of key/value pairs that configure the Server Observer.
 	
-	* `url` - _Optional_ - A _ping_ URL on which a HEAD HTTP request will be sent to check the server availability. If no URL is provided, the Server Observer will only notify availability changes on user-sent Ajax requests.
+	* `url` - _Optional_ - A _ping_ URL on which a HEAD HTTP request will be sent to check the server availability. If no URL is provided, only user-sent Ajax requests will be observed.
 	* `frequency` - _Optional, default: 3000_ - Time between each _ping_ (in milliseconds).
-	* `onServerOnline` - A function called when the server becomes available. 
-	* `onServerOffline` - A function called when the server becomes unavailable.
+	* `onServerOnline` - Function to be called when the server becomes available. 
+	* `onServerOffline` - Function to be called when the server becomes unavailable.
 
 * `jQuery.serverObserver.disable()` - Stops the observation.
 
