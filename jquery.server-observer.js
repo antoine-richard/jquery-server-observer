@@ -1,6 +1,6 @@
-/*
+/**
  * jQuery Server Observer Plugin
- * Version 0.1.0
+ * Version 0.2
  *
  * https://github.com/antoine-richard/jquery-server-observer
  *
@@ -8,7 +8,6 @@
  * jQuery Server Observer Plugin is released under the MIT license (see included LICENSE file).
  * 
  */
-
 (function($) {
 
 	$.serverObserver = (function() {
@@ -17,14 +16,16 @@
 			serverStatus = "unknown";
 		
 		/**
-		 * Observes the server availability.
+		 * Observes the server availability
+		 *  - by periodically pinging a specified URL
+		 *  - by observing any and all user-sent Ajax requests.
 		 * 
 		 * The 'options' parameter is a set of key/value pairs:
 		 * - 'url' - [Optional] A "ping" URL on which a HEAD HTTP request will be sent to check the server availability.
 		 *    If no URL is provided, only user-sent Ajax requests will be observed.
-		 * - 'frequency' - [Optional, default: 3000] Time between each "ping".
-		 * - 'onServerOnline' - A function called when the server becomes available.
-		 * - 'onServerOffline' - A function called when the server becomes unavailable.
+		 * - 'frequency' - [Optional, default: 3000] Time between each "ping" (in milliseconds).
+		 * - 'onServerOnline' - Function to be called when the server becomes available.
+		 * - 'onServerOffline' - Function to be called when the server becomes unavailable.
 		 */
 		function observe(options) {
 			
@@ -65,10 +66,18 @@
 			$(window).off(".serverObserver");
 		}
 		
+		/**
+		 * Returns true if the server's last known status is online.
+		 */
+		function online() {
+			return serverStatus === "online";
+		}
+		
 		/** Public API */
 		return {
 			enable: observe,
-			disable: stop
+			disable: stop,
+			isServerOnline: online
 		};
 		
 	})();
