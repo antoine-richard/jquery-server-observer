@@ -1,0 +1,28 @@
+{
+    "name": "server-observer",
+    "title": "jQuery Server Observer",
+    "description": "The Server Observer Plugin provides a simple and reliable way to check if the server-side application is available. Hopefully it will help people to use HTML5 offline mode.",
+    "keywords": [
+        "html5",
+        "offline",
+        "ajax",
+        "ping"
+    ],
+    "version": "0.9.0",
+    "author": {
+        "name": "Antoine Richard",
+        "url": "https://github.com/antoine-richard"
+    },
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://github.com/antoine-richard/jquery-server-observer/blob/master/LICENCE"
+        }
+    ],
+    "bugs": "https://github.com/antoine-richard/jquery-server-observer/issues",
+    "homepage": "https://github.com/antoine-richard/jquery-server-observer",
+    "docs": "https://github.com/antoine-richard/jquery-server-observer/blob/master/README.md",
+    "dependencies": {
+        "jquery": ">=1.7"
+    }
+}
