@@ -22,9 +22,10 @@ The plugin provides three operations:
 * `jQuery.serverObserver.enable(options)` - Starts observing the server availability.
 
 	The `options` parameter is a set of key/value pairs that configure the Server Observer:
-	
-	* `url` - _Optional_ - A _ping_ URL on which a HEAD HTTP request will be sent to check the server availability. If no URL is provided, only user-sent Ajax requests will be observed.
+
+	* `url` - _Optional_ - An URL which will be _pinged_ to check the server availability. If no URL is provided, only user-sent Ajax requests will be observed.
 	* `frequency` - _Optional, default: 3000_ - Time between each _ping_ (in milliseconds).
+	* `method` - _Optional, default: HEAD_ - Type of the ping request.
 	* `onServerOnline` - Function to be called when the server becomes available. 
 	* `onServerOffline` - Function to be called when the server becomes unavailable.
 
@@ -61,7 +62,7 @@ jQuery Server Observer Plugin can be used with jQuery 1.7 and above.
 Todo list
 =========
 
-* Write tests
+* Write neat tests
 
 Contributing
 ============
@@ -72,11 +73,15 @@ Please feel free to report issues and submit pull requests.
 Changelog
 =========
 
-**v0.2** - August 15th, 2012
+**0.9.0** - February 4th, 2013 - _a.k.a. 1.0.0 release candidate_
+
+* Added the ability to specify the ping request type (default: HEAD)
+
+**0.2.0** - August 15th, 2012
 
 * Added the `isServerOnline` method
 
-**v0.1** - May 10th, 2012
+**0.1.0** - May 10th, 2012
 
 * Initial release
 

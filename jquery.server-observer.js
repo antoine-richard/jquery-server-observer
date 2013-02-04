@@ -1,6 +1,6 @@
 /**
  * jQuery Server Observer Plugin
- * Version 0.2
+ * Version 0.9.0
  *
  * https://github.com/antoine-richard/jquery-server-observer
  *
@@ -21,9 +21,10 @@
 		 *  - by observing any and all user-sent Ajax requests.
 		 * 
 		 * The 'options' parameter is a set of key/value pairs:
-		 * - 'url' - [Optional] A "ping" URL on which a HEAD HTTP request will be sent to check the server availability.
+		 * - 'url' - [Optional] An URL which will be "pinged" to check the server availability.
 		 *    If no URL is provided, only user-sent Ajax requests will be observed.
 		 * - 'frequency' - [Optional, default: 3000] Time between each "ping" (in milliseconds).
+		 * - 'method' - [Optional, default: HEAD] Type of the ping request.
 		 * - 'onServerOnline' - Function to be called when the server becomes available.
 		 * - 'onServerOffline' - Function to be called when the server becomes unavailable.
 		 */
@@ -45,12 +46,12 @@
 				}
 			});
 			
-			// periodically test the given URL (with a HEAD request)
+			// periodically test the given URL
 			options.url && (function loop() {
 				timer = setTimeout(function() {
 					$.ajax({
 						url: options.url,
-						type: "HEAD",
+						type: options.method || "HEAD",
 						complete: loop
 					});
 				}, options.frequency || 3000);
